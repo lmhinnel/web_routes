@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <div class="output"></div>
+    Mã sinh viên: <input type="text" class="masv"> <br>
+
+    <button class="submit">Xem thông tin</button>
+
+    <script>
+        document.querySelector("button.submit").onclick = function() {
+            fetch("/students/" + document.querySelector("input.masv").value)
+                .then(res => {
+                    if (res.status == 200) {
+                        res.json().then(ret => {
+                            if (ret.status == "OK")
+                                document.querySelector("div.output").innerHTML = JSON.stringify(ret.data);
+                        });
+                    }
+                });
+        };
+    </script>
+</body>
+
+</html>
