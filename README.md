@@ -3,6 +3,7 @@
     yarn
     yarn start
     http://localhost:3030/{param}
+    {link gitpod hiện tại}/{param}
 
 Thay đổi các giá trị param:
     param = get || update || list
